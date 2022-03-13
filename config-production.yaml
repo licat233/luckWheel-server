@@ -1,0 +1,36 @@
+#production config
+Addr: 0.0.0.0:80
+Admin:
+  Username: admin
+  Password: 123456
+Prizes:
+  - Id: 0
+    Name: 美的蒸烤箱
+    Chance: 0
+    Image: https://img.alicdn.com/imgextra/i3/917298378/O1CN01Us4mhB2BlAymmJh8F_!!917298378.png
+    Win: true
+  - Id: 1
+    Name: YSL-聖羅蘭
+    Chance: 0
+    Image: https://img.alicdn.com/imgextra/i3/917298378/O1CN01WlLtDx2BlAyrbjRQs_!!917298378.png
+    Win: true
+  - Id: 2
+    Name: 雪肌淨膚面膜
+    Chance: 35
+    Image: https://img.alicdn.com/imgextra/i3/917298378/O1CN01Nr8x9L2BlAyrbiAQ8_!!917298378.png
+    Win: true
+  - Id: 3
+    Name: other瘦臉美容儀
+    Chance: 0
+    Image: https://img.alicdn.com/imgextra/i2/917298378/O1CN01WEtVQY2BlAyqtqgUJ_!!917298378.png
+    Win: true
+  - Id: 4
+    Name: 訂製化妝包
+    Chance: 30
+    Image: https://img.alicdn.com/imgextra/i1/917298378/O1CN01WU8xmq2BlAyhhNu5c_!!917298378.png
+    Win: true
+  - Id: 5
+    Name: 瑩潤煥白面膜
+    Chance: 35
+    Image: https://img.alicdn.com/imgextra/i2/917298378/O1CN01oxosSB2BlAyozFJKo_!!917298378.png
+    Win: true

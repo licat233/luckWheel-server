@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 100vh;
+}
+
+.mainBkg {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.mainBkg>img {
+    -webkit-user-drag: none;
+    position: relative;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.luckyContainer {
+    width: 100%;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.luckBkg {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.frameBox {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    text-align: center;
+    top: 76%;
+}
+
+.frameimg {
+    width: 90%;
+}
+
+.footer {
+    position: fixed;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.footer>div {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.footer>div>img {
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    margin-bottom: -2px;
+}

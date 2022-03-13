@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理員界面</title>
+</head>
+
+<body>
+    <script>
+        !function () { if (window.loadLocalToken = function () { if (this.jwtTokenData = localStorage.getItem("luckToken"), jwtTokenData) try { if (this.jwtToken = JSON.parse(jwtTokenData), 0 === jwtToken.Token.length) return void (window.jwtToken = null); jwtToken.ExpiresAt = new Date(jwtToken.ExpiresAt), window.jwtToken = jwtToken } catch (error) { window.jwtToken = null } else window.jwtToken = null }, window.Auth = function () { if (!window.jwtToken) return window.loginState = "未登錄", !1; try { return !(new Date > window.jwtToken.ExpiresAt && (window.loginState = "登錄已過期,請重新登錄", 1)) } catch (error) { return window.loginState = "未登錄", !1 } }, loadLocalToken(), Auth()) { var appCode = '<div class="logout"><a href="javascript:void(0);" id="logout">退出登錄</a></div><div class="container"><div div class="content" ><div id="notebooks"><input type="text" id="query" /><div class="selectbox"><div class="total">總共<span id="total">0</span>條記錄</div><select id="orderList"><option value="asc">最新</option><option value="desc">最旧</option><option value="win">已中奖</option><option value="fail">未中奖</option><option value="used">已抽奖</option><option value="initial">未抽奖</option></select></div><ul id="notebook_ul"></ul></div><div class="genbox card card-2"><div class="genboxtop"><label for="shortKey">憑證:</label><input id="shortKey" maxlength="15" minlength="4" type="text"><div class="bubbly-button" id="genbtn">生成短鏈接</div></div><div id="genmsg"></div></div></div ></div > '; document.body.insertAdjacentHTML("beforeend", appCode); var cssE = document.createElement("link"); cssE.rel = "stylesheet", cssE.href = "/luck/static/css/admin.min.css?update=2022", document.head.appendChild(cssE); var jsE = document.createElement("script"); jsE.src = "/luck/static/js/admin.min.js?update=2022", document.body.appendChild(jsE) } else window.location.href = "/luck/login" }();
+    </script>
+</body>
+
+</html>
