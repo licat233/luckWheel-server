@@ -28,7 +28,7 @@ func (a *App) InitializeRouters() {
 	gin.DefaultWriter = io.MultiWriter(logfile)
 	gin.SetMode(gin.ReleaseMode)
 	a.Router = gin.Default()
-	// a.Router.Use(cors()) //ReleaseMode模式不需要
+	a.Router.Use(Cors()) //ReleaseMode模式不需要
 	a.Router.Use(gin.Logger())
 	a.Router.Use(gin.Recovery())
 	a.Router.GET("/", nonepage)
@@ -38,8 +38,10 @@ func (a *App) InitializeRouters() {
 	a.Router.StaticFile("/luck/login", "./view/login.html")
 	a.Router.StaticFile("/luck/admin", "./view/admin.html")
 	a.Router.LoadHTMLFiles("./luckview/client/index.html")
+
 	a.Router.GET("/luck/admin/reset", a.resetConfig)
 	a.Router.GET("/luck/:shortlink", a.luckpage)
+
 	a.Router.POST("/luck/prizes", a.getprizes)
 	a.Router.POST("/luck/login/verify", a.loginVerify)
 	a.Router.POST("/luck/:shortlink/goodluck", a.goodluck)
@@ -69,17 +71,17 @@ func nonepage(ctx *gin.Context) {
 	})
 }
 
-// func cors() gin.HandlerFunc {
-// 	return func(c *gin.Context) {
-// 		method := c.Request.Method
-// 		c.Header("Access-Control-Allow-Origin", "*")
-// 		c.Header("Access-Control-Allow-Headers", "Content-Type,AccessToken,X-CSRF-Token, Authorization, Token")
-// 		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-// 		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type")
-// 		c.Header("Access-Control-Allow-Credentials", "true")
-// 		if method == "OPTIONS" {
-// 			c.AbortWithStatus(http.StatusNoContent)
-// 		}
-// 		c.Next()
-// 	}
-// }
+func Cors() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		method := c.Request.Method
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Headers", "Content-Type,AccessToken,X-CSRF-Token, Authorization, Token")
+		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		if method == "OPTIONS" {
+			c.AbortWithStatus(http.StatusNoContent)
+		}
+		c.Next()
+	}
+}

@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 function App() {
+  const domain = "//localhost"
   const reqUrls = {
-    luckUrl: window.location.href + "/goodluck",
-    prizesUrl: "/luck/prizes"
+    // luckUrl: window.location.href + "/goodluck",
+    luckUrl: domain + "/luck/goodluck",
+    prizesUrl: domain + "/luck/prizes"
   }
   const bkgImgRef = useRef();
   const LuckyRef = useRef();
@@ -171,7 +173,7 @@ function App() {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.code !== 200) {
+        if (!result.code || result.code !== 200) {
           Swal.fire({
             padding: swalpadding,
             position: "center",
@@ -190,7 +192,6 @@ function App() {
           var prizeConfig = { background: item.Id % 2 ? "#B68CF9" : "#FFFFFF", imgs: [{ src: item.Image, top: "10%", width: "40%" }] }
           newPrizes[item.Id] = prizeConfig;
         });
-
         setPrizes(newPrizes);
       })
       .catch((error) => {
@@ -235,10 +236,11 @@ function App() {
   useEffect(() => {
     window.addEventListener("resize", screenChangeHandler);
     screenChangeHandler();
-    if (!prizesStatus) {
-      getPrizesList();
+    getPrizesList();
+    return () => {
+      window.removeEventListener("resize", screenChangeHandler);
     }
-  }, [prizesStatus]);
+  }, []); //eslint-disable-line
   return <section className="luckyContainer">
     <div className="mainBkg">
       <img src={bjimg} alt="" className="mainBkg" ref={bkgImgRef} />
